@@ -7,7 +7,7 @@ const FieldText = (props) => {
             <label>
                 {props.label}
             </label>
-            <input placeholder={placeholder}/>
+            <input required={props.obrigatory} placeholder={placeholder}/>
         </div>
 
     );

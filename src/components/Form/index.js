@@ -1,7 +1,7 @@
 import "./Form.css";
 import FieldText from "../FieldText";
 import DropdownList from "../DropdownList";
-
+import Button from "../Button";
 
 
 const Form = () => {
@@ -16,14 +16,22 @@ const Form = () => {
         'Mobile',
         'Inovação e Gestão'];
 
+    const onSave = (event) => {
+        event.preventDefault();
+        console.log('Formulario enviado!');
+    }
+
     return (
         <section class="form">
-            <form>
+            <form onSubmit={onSave}>
                 <h2>Preencha os dados para criar o card do colaborador </h2>
-                <FieldText label="Nome" placeholder="Digite seu nome" />
-                <FieldText label="Cargo" placeholder="Digite seu cargo" />
+                <FieldText obrigatory={true} label="Nome" placeholder="Digite seu nome" />
+                <FieldText obrigatory={true} label="Cargo" placeholder="Digite seu cargo" />
                 <FieldText label="Imagem" placeholder="Digite o endereço da imagem" />
-                <DropdownList label="Times"  itens={times} />
+                <DropdownList obrigatory={true} label="Times" itens={times} />
+                <Button>
+                    Criar card
+                </Button>
             </form>
         </section>
     )
