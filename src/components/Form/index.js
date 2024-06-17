@@ -6,31 +6,21 @@ import Button from "../Button";
 
 
 const Form = (props) => {
-
-    const team = [
-        'Programação',
-        'Front-End',
-        'Data Science',
-        'Devops',
-        'UX e Design',
-        'Mobile',
-        'Inovação e Gestão',
-    ];
+ 
 
     const [name, setName] = useState('');
     const [office, setOffice] = useState('');
     const [image, setImage] = useState('');
-    const [teams, setTeams] = useState('');
+    const [team, setTeam] = useState('');
 
     const onSave = (event) => {
-        event.preventDefault();
-        // console.log('Formulario enviado => Nome: ', name, 'Cargo: ', office, 'Imagem: ', image, 'Times: ', teams);
+        event.preventDefault(); 
         props.whenCollaboratorsRegistered(
             {
                 name,
                 office,
                 image,
-                teams
+                team
             }
         )
     }
@@ -62,10 +52,10 @@ const Form = (props) => {
 
                 <DropdownList
                     obrigatory={true}
-                    label="Times"
-                    itens={team}
-                    value={teams}
-                    whenChanged={value => setTeams(value)} />
+                    label="Time"
+                    itens={props.teams}
+                    value={team}
+                    whenChanged={value => setTeam(value)} />
 
                 <Button>
                     Criar card

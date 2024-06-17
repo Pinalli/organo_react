@@ -1,10 +1,15 @@
+import Collaborator from '../Collaborator';
 import './Team.css';
 
+
 const Team = (props) => {
+    const css = { backgroundColor: props.secundaryColor }
+    
     return (
-        <section className='team'>
-            <h3>{props.name} </h3>
-        </section> 
+        <section className='team' style={css}>
+            <h3 style={{ boderColor: props.primaryColor }}>{props.name} </h3>
+            <Collaborator />
+        </section>
     )
 }
 
